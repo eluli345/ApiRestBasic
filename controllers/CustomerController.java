@@ -24,6 +24,17 @@ public class CustomerController {
 	public List<Customer> getCustomers(){
 		return customers;
 	}
+	@GetMapping("Clients/{username}")
+	public Customer getClient(@PathVariable String username) {
+		for(Customer c : customers) {
+			if (c.getUsername().equalsIgnoreCase(username)) {
+				return c;
+			}
+		}
+		
+		return null;
+		
+	}
 	
 	
 }
